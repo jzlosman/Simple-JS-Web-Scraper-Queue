@@ -1,5 +1,23 @@
 # Simple JS Web Scraper Queue
 
+## Challenge
+
+"Create a job queue whose workers fetch data from a URL and store the results in a database. The job queue should expose a REST API for adding jobs and checking their status / results."
+
+### Solutions
+
+* Implements topic-based in-memory queue
+* Runs a worker to perform web-scraping
+* Exposes POST API to request website to be scraped
+* Caches websites in DB for future lookups
+* Exposes GET API endpoint to check status of request and see result
+* Port and Topic configurable with ``.env` file (copy  ``.env.example`)
+
+### Important Vendor Libs Used
+
+* [in-memory-queue](https://github.com/void666/in-memory-queue#readme) - Queue Service
+* [LokiJS](https://github.com/techfort/LokiJS) - Simple NoSQL DB
+
 ## Installation
 Install the dependencies with
 ```sh

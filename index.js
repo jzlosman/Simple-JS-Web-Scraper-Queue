@@ -9,9 +9,9 @@ const queueManager = require('./queue/queueManager');
 const topic = process.env.TOPIC || 'webscrapers';
 
 queueManager.configQueue(topic).then((queue) => {
-  queueManager.startWorker(topic)
+  queueManager.startWorker(topic);
 }).catch((err) => {
-  console.error('error making topic', err);
+  console.error(`error creating queue for ${topic}`, err);
 });
 
 /*

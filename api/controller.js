@@ -4,7 +4,7 @@ const validator = require('validator');
 
 const db = require('../db/db');
 const response = require('../helpers/response');
-
+const topic = process.env.TOPIC || 'webscrapers';
 /**
  * handle post request, returning cached result or adding to process queueId
  * @param  {Object} req express request
