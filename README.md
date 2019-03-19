@@ -24,9 +24,10 @@ To get started, make a **POST** request to the root of the API at **http://127.0
 The body should be a simple JSON object with a **url** property
 ```JSON
 {
-  'url': 'http://www.google.com'
+  "url": "http://www.google.com"
 }
 ```
+
 **NOTES:**
 * A protocol (http:// or https://) is required. `www.google.com` will return a `422 Unprocessible Entity` because that is not a valid URL and this application will not attempt to guess which protocol you meant to use.
 
@@ -79,7 +80,7 @@ If the URL you are requesting **has already been scraped in your session** or yo
         "url": "http://www.google.com/",
         "processed": true,
         "hasError": false,
-        "html": "<html><head><title>Google</title>...</html>"
+        "html": "<html><head><title>Google</title>...</html>",
         "meta": {
             "revision": 1,
             "created": 1552974578712,
