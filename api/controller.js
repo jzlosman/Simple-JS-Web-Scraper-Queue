@@ -65,7 +65,7 @@ const status = (req, res) => {
   const queueId = req.params.queue_id;
   website = db.find(queueId);
   if(website !== null) {
-    response.success(res, website);
+    return response.success(res, website);
   }
   response.error(res, 404, 'Queue ID not found');
 }
