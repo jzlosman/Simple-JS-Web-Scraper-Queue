@@ -92,7 +92,9 @@ If the URL you are requesting **has already been scraped in your session** or yo
 
 ## In-Queue vs Processed Response
 
-`queueId`, `url`, and `links.status` will not change.  These are the important properties that will differ between an in-queue response and a processed response.
+`queueId`, `url`, and `links.status` will not change.  
+
+The following properties that will differ between an in-queue response and a processed response:
 
 | Property | In-Queue Value | Processed Value | Description |
 | -------- | -------------- | ----------- | ------- |
