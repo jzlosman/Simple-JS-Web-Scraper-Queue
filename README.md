@@ -11,7 +11,7 @@
 * Exposes POST API to request website to be scraped
 * Caches websites in DB for future lookups
 * Exposes GET API endpoint to check status of request and see result
-* Port and Topic configurable with ``.env` file (copy  ``.env.example`)
+* Port and Topic configurable with `.env` file (copy  `.env.example`)
 
 ### Important Vendor Libs Used
 

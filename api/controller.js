@@ -46,7 +46,7 @@ const validateUrl = (body, res) => {
  * @param {Object} res express response
  */
 const addToQueue = (url, req, res) => {
-  imqueue.createMessage(process.env.TOPIC, JSON.stringify({ url })).then(({ message }) => {
+  imqueue.createMessage(topic, JSON.stringify({ url })).then(({ message }) => {
     const id = message.getId();
     website = db.create(id, url);
     response.success(res, website);
