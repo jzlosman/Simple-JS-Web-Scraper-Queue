@@ -1,0 +1,19 @@
+{
+  "name": "simple-js-webscraper-queue",
+  "version": "1.0.0",
+  "description": "A programming challenge to create a job queue to fetch website HTML dumps via API endpoint",
+  "main": "index.js",
+  "author": "Jeremy Zaborowski",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "in-memory-queue": "^1.0.3",
+    "lokijs": "^1.5.6",
+    "validator": "^10.11.0"
+  }
+}
