@@ -14,7 +14,7 @@ const create = (queueId, url) => {
     queueId,
     url,
     processed: false,
-    hasError: null,
+    error: null,
     html: null,
   });
 }
@@ -26,14 +26,16 @@ const create = (queueId, url) => {
  * @param  {bool} hasError  encountered error during scrape
  * @return
  */
-const update = ({ queueId, html, hasError }) => {
+const update = ({ queueId, html, error }) => {
   website = find(queueId);
-  if (website !== null) {
-    website.html = html;
-    website.processed = true;
-    website.hasError = hasError;
-    websites.update(website);
+  if(website === null) {
+    return null;
   }
+
+  website.html = html;
+  website.processed = true;
+  website.error = error;
+  return websites.update(website);
 }
 
 /**

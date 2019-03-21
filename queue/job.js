@@ -2,6 +2,11 @@
 const axios = require('axios');
 const db = require('./../db/db');
 
+const axiosConfig = {
+  maxContentLength: 2000000, /* ~2MB in bytes */
+  timeout: 2000              /* 2 sec in ms */
+}
+
 /**
  * process queue item, scraping the website and storing the result
  * @param  {string} queueId
@@ -9,10 +14,18 @@ const db = require('./../db/db');
  * @return
  */
 const process = (queueId, url) => {
-  scrape(url).then((html) => {
-    db.update({ queueId, html, hasError: false });
+  return scrape(url).then((html) => {
+    return db.update({
+      queueId,
+      html,
+      error: null
+    });
   }).catch((err) => {
-    db.update({queueId, html: 'Unable to get HTML from the URL provided', hasError: true });
+    return db.update({
+      queueId,
+      html: null,
+      error: err.message
+    });
   });
 }
 
@@ -22,7 +35,7 @@ const process = (queueId, url) => {
  * @return {Promise}
  */
 const scrape = (url) => {
-  return axios.get(url).then((result) => {return result.data})
+  return axios.get(url, axiosConfig).then((result) => {return result.data})
 }
 
 module.exports = {
